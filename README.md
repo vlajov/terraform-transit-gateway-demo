@@ -1,2 +1,20 @@
-# terraform-transit-gateway-demo
-Terraform configuration for connecting two AWS VPCs using Transit Gateway
+# Terraform Transit Gateway Demo
+
+Terraform configuration for connecting two AWS VPCs using a Transit Gateway, as described in my LinkedIn article.
+
+## Files
+- main.tf: Defines VPCs, EC2 instances, and Transit Gateway.
+- output.tf: Outputs resource IDs and IPs.
+- .gitignore: Excludes Terraform state files and sensitive data.
+
+## Usage
+1. Follow the LinkedIn article to set up IAM roles, access keys, and a key pair.
+2. Download main.tf and output.tf from this repository.
+3. Update main.tf with your values for key_name = "Key's name" and iam_instance_profile = "Role's name".
+4. Run terraform init, terraform plan, and terraform apply.
+
+## Requirements
+- Terraform v1.0 or later
+- AWS account with credentials configured
+- Key pair named "Key's name"
+- IAM role named "Role's name" with AmazonSSMManagedInstanceCore policy
