@@ -67,10 +67,10 @@ name = "FirstEC2_sg"
 description = "SG1 for TG demo"
 vpc_id = aws_vpc.first_vpc.id
 egress {
-from_port = 22
-to_port = 22
-protocol = "tcp"
-cidr_blocks = [aws_vpc.second_vpc.cidr_block]
+from_port = 0
+to_port = 0
+protocol = "-1"
+cidr_blocks = ["0.0.0.0/0"]
 }
 tags = {
 Name = "FirstEC2_sg"
