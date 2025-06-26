@@ -14,6 +14,7 @@ Terraform configuration for connecting two AWS VPCs using a Transit Gateway, as 
 4. Run terraform init, terraform plan, and terraform apply.
 
 ## Requirements
+- Setup Visual Studio Code
 - Terraform v1.0 or later
 - AWS account with credentials configured
 - Key pair named "Key's name"
