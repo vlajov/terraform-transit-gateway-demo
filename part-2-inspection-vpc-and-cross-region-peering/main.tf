@@ -3,17 +3,13 @@
 
 # Default provider for us-east-1
 provider "aws" {
-  region     = var.region
-  access_key = var.access_key
-  secret_key = var.secret_key
+  region = var.region
 }
 
 # Provider for us-east-2
 provider "aws" {
-  alias      = "east2"
-  region     = var.region_east2
-  access_key = var.access_key
-  secret_key = var.secret_key
+  alias  = "east2"
+  region = var.region_east2
 }
 
 # Fetch latest Amazon Linux 2 AMI for us-east-1
@@ -144,7 +140,7 @@ resource "aws_security_group" "inspection_sg" {
 resource "aws_instance" "inspection_appliance_1a" {
   ami                    = data.aws_ami.amazon_linux.id
   instance_type          = "t2.micro"
-  key_name               = "us-east-1 YOUR KEY PAIR NAME" # Replace with the same Key Pair Name created in Part 1
+  key_name               = var.key_name
   vpc_security_group_ids = [aws_security_group.inspection_sg.id]
   subnet_id              = aws_subnet.inspection_subnet_1a.id
   source_dest_check      = false
@@ -157,7 +153,7 @@ resource "aws_instance" "inspection_appliance_1a" {
 resource "aws_instance" "inspection_appliance_1b" {
   ami                    = data.aws_ami.amazon_linux.id
   instance_type          = "t2.micro"
-  key_name               = "us-east-1 YOUR KEY PAIR NAME" # Replace with the same Key Pair Name created in Part 1
+  key_name               = var.key_name
   vpc_security_group_ids = [aws_security_group.inspection_sg.id]
   subnet_id              = aws_subnet.inspection_subnet_1b.id
   source_dest_check      = false
@@ -242,7 +238,7 @@ resource "aws_instance" "east2_ec2" {
   provider               = aws.east2
   ami                    = data.aws_ami.amazon_linux_east2.id
   instance_type          = "t2.micro"
-  key_name               = "us-east-2 YOUR KEY PAIR NAME" # Replace with a Key Pair you created in us-east-2
+  key_name               = var.key_name
   vpc_security_group_ids = [aws_security_group.east2_sg.id]
   subnet_id              = aws_subnet.east2_private_subnet.id
   tags = {

@@ -81,10 +81,10 @@ resource "aws_security_group" "ec2sg" {
 resource "aws_instance" "first_vpc_ec2" {
   ami                         = data.aws_ami.amazon_linux.id
   instance_type               = "t2.micro"
-  key_name                    = "YOUR KEY PAIRS NAME" # Make sure you use the Key pair name that you created in Task 5
+  key_name                    = "YOUR KEY PAIR NAME" # Make sure you use the Key pair name that you created in Task 5
   vpc_security_group_ids      = [aws_security_group.ec2sg.id]
   subnet_id                   = aws_subnet.public_subnet_first_vpc.id
-  iam_instance_profile        = "YOUR IAM ROLE" # Use the Role’s name from Task 1
+  iam_instance_profile        = "IAM Role Name" # Use the Role’s name from Task 1
   associate_public_ip_address = true
   tags = {
     Name = "First_VPC_EC2"
@@ -151,7 +151,7 @@ resource "aws_security_group" "privateec2sg" {
 resource "aws_instance" "second_vpc_ec2" {
   ami                         = data.aws_ami.amazon_linux.id
   instance_type               = "t2.micro"
-  key_name                    = "YOUR KEY PAIRS NAME" # Make sure you use the Key pair name that you created in Task 5
+  key_name                    = "YOUR KEY PAIR NAME" # Make sure you use the Key pair name that you created in Task 5
   vpc_security_group_ids      = [aws_security_group.privateec2sg.id]
   subnet_id                   = aws_subnet.private_subnet_second_vpc.id
   associate_public_ip_address = false
