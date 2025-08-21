@@ -82,7 +82,7 @@ resource "aws_subnet" "inspection_subnet_1a" {
   }
 }
 
-# Inspection subnet in us-east-1b (for appliance mode AZ requirement)
+# Inspection subnet in us-east-1b (for appliance mode multi-AZ requirement)
 resource "aws_subnet" "inspection_subnet_1b" {
   vpc_id            = aws_vpc.inspection_vpc.id
   cidr_block        = "30.0.0.64/26"
@@ -344,7 +344,7 @@ resource "aws_ec2_transit_gateway_route" "inspection_to_east2" {
   depends_on                     = [aws_ec2_transit_gateway_peering_attachment_accepter.cross_region_accepter, aws_ec2_transit_gateway_route_table_association.cross_region_peering_inspection_association]
 }
 
-# Routes from Inspection TGW back to Part 1 VPCs
+# Routes from Inspection TGW back to the other VPCs
 resource "aws_ec2_transit_gateway_route" "inspection_to_first_vpc" {
   destination_cidr_block         = "10.0.0.0/24"
   transit_gateway_attachment_id  = local.peer_attachment_id
