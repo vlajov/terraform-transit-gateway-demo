@@ -31,7 +31,7 @@ us-east-2 VPC → East2 TGW → Cross-Region Peering → Inspection TGW → Insp
 
 ## Prerequisites
 
-- **AWS CLI** configured with appropriate credentials (access key and secret access key)
+- **AWS CLI** configured with appropriate credentials
 - **Terraform** v1.0 or later
 - **AWS Account** with permissions to create VPCs, Transit Gateways, and EC2 instances
 - **SSH Key Pairs** created in both us-east-1 and us-east-2 regions (for Part 2)
@@ -48,15 +48,11 @@ terraform-transit-gateway-demo/
 ├── part-1-basic-tgw-with-two-vpcs/
 │   ├── README.md                                      # Part 1 instructions
 │   ├── main.tf                                        # Basic TGW infrastructure
-│   ├── variables.tf                                   # Part 1 variables
-│   ├── output.tf                                      # Part 1 outputs
-│   └── terraform.tfvars                               # Part 1 configuration
+│   └── output.tf                                      # Part 1 outputs
 └── part-2-inspection-vpc-and-cross-region-peering/
     ├── README.md                                      # Part 2 instructions
     ├── main.tf                                        # Advanced inspection architecture
-    ├── variables.tf                                   # Part 2 variables
-    ├── output.tf                                      # Part 2 outputs
-    └── terraform.tfvars                               # Part 2 configuration
+    └── output.tf                                      # Part 2 outputs
 ```
 
 ## Key Features
