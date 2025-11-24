@@ -5,16 +5,22 @@ Advanced Terraform configuration extending Part 1 with cross-region connectivity
 ## Files
 
 - main.tf: Defines inspection VPC, cross-region setup, and multiple Transit Gateways.
-- variables.tf: Variable definitions for Part 2 configuration.
 - output.tf: Outputs resource IDs and IPs for Part 2 resources.
-- terraform.tfvars: Configuration values for regions and key pairs.
+- no terraform.tfvars and variables.tf; use more secure option by setting enironment variable.
 
 ## Usage
 
-1. **Deploy [Part 1](https://www.linkedin.com/pulse/connect-two-aws-vpcs-terraform-transit-gateway-guide-jovanovski-pte0f/?trackingId=T8jVXOI%2FAReIQOSOqyRO%2Bg%3D%3D) first** - Part 2 cannot be deployed independently.
+1. **Deploy [Part 1](https://www.linkedin.com/pulse/connect-two-aws-vpcs-terraform-transit-gateway-guide-jovanovski-pte0f/?trackingId=T8jVXOI%2FAReIQOSOqyRO%2Bg%3D%3D) first**! Part 2 cannot be deployed independently.
 2. Follow the LinkedIn article for detailed setup instructions.
-3. Update terraform.tfvars with your key pair name (must exist in both us-east-1 and us-east-2).
-4. Run terraform init, terraform plan, and terraform apply.
+3. Run the commands:
+
+```powershell
+terraform init
+terraform validate
+$env:TF_VAR_key_name = "key-pair-name"
+terraform plan
+terraform apply
+```
 
 ## Requirements
 

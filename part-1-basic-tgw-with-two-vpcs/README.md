@@ -10,7 +10,7 @@ Terraform configuration for connecting two AWS VPCs using a Transit Gateway, as 
 
 ## Usage
 
-1. Follow my [LinkedIn article](https://www.linkedin.com/pulse/connect-two-aws-vpcs-terraform-transit-gateway-guide-jovanovski-pte0f/?trackingId=RZfA4FnTRC%2BsGqjIFmL33g%3D%3D) to set up IAM roles, access keys, and a key pair.
+1. Follow my [LinkedIn article](https://www.linkedin.com/pulse/connect-two-aws-vpcs-terraform-transit-gateway-guide-jovanovski-pte0f/?trackingId=RZfA4FnTRC%2BsGqjIFmL33g%3D%3D) to set up IAM role and a key pair.
 2. Download main.tf and output.tf from this repository.
 3. Update main.tf with your values for key_name = "Key's name" (lines 84 & 154) and iam_instance_profile = "Role's name" (line 87).
 4. Run terraform init, terraform plan, and terraform apply.
@@ -19,6 +19,5 @@ Terraform configuration for connecting two AWS VPCs using a Transit Gateway, as 
 
 - Setup Visual Studio Code
 - Terraform v1.0 or later
-- AWS account with credentials configured
-- Key pair named "Key's name"
+- AWS account with console login ability
 - IAM role named "Role's name" with AmazonSSMManagedInstanceCore policy
